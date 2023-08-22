@@ -1,14 +1,16 @@
-import React from 'react';
+import React from "react";
 
 function Todolist(props) {
   const { item, index, completed, toggleCompleted, deleteItem } = props;
 
   return (
-    <li className={`list-item ${completed ? 'completed' : ''}`}>
+    <li className={`list-item ${completed ? "completed" : ""}`}>
       <input
         type="checkbox"
         checked={completed}
         onChange={() => toggleCompleted(index)}
+        className="checkbox-style"
+        style={{ marginRight: "10px" }}
       />
       <span>{item}</span>
       <span className="icons">

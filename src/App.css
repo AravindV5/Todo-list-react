@@ -27,8 +27,7 @@ padding-bottom: 20px;
  
   color: rgb(0, 0, 0);
  
-  font-family: 'Times New Roman', Times, serif;
-
+ font-family: sans-serif;
 }
 
 /* Add these styles for the heading and button alignment */
@@ -120,9 +119,11 @@ padding-bottom: 20px;
 
 .completed {
   text-decoration: line-through;
-  color: rgba(90, 90, 90, 1);
+  color: rgb(107, 66, 66);
   padding-left: 15px;
+
 }
+
 
 .header-add-button {
   display: flex;
@@ -131,3 +132,28 @@ padding-bottom: 20px;
     margin-top: 50px;
     margin-left: 20px;
 }
+
+/* Style the checkbox */
+.list-item input[type="checkbox"] {
+  appearance: none; /* Remove default checkbox styles */
+  -webkit-appearance: none; /* For older versions of Safari */
+  width: 18px;
+  height: 18px;
+  border: 1.3px solid rgba(234, 89, 89, 1);
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Style the checkmark inside the checkbox for completed tasks */
+.list-item input[type="checkbox"]:checked::after {
+  content: "\2713"; /* Unicode checkmark character */
+  display: block;
+  text-align: center;
+  line-height: 18px; 
+  font-size: 16px;
+  color: rgba(234, 89, 89, 1);
+  text-decoration: none;
+}
+
+
