@@ -1,7 +1,7 @@
 # React-Todo-App
 
 Todo list app project using react hooks
-Here is the screenshot of the project.
+Here is the sample picture of the project.
 
 <img width="457" alt="image" src="C:\Users\aravi\Downloads\Screenshot (132).png">
 
