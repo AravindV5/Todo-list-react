@@ -6,7 +6,7 @@ function TodoInput(props) {
   return (
     <div className="input-container">
       <div className="header-add-button">
-        <h1 className="app-heading">All tasks</h1>
+        <h1 className="app-heading">All Tasks</h1>
 
         <button
           className="add-btn"
