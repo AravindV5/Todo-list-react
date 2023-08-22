@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import TodoInput from "./components/TodoInput";
 import Todolist from "./components/TodoList";
-
+import icon from "./images/Group 1.png";
 function App() {
   const [listTodo, setListTodo] = useState([]);
 

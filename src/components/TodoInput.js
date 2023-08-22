@@ -14,9 +14,7 @@ function TodoInput(props) {
             props.addList(inputText);
             setInputText("");
           }}
-        >
-          + Add new task
-        </button>
+        ></button>
       </div>
       <input
         type="text"
