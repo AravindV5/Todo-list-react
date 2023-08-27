@@ -1,6 +1,6 @@
 import React from "react";
 
-function Todolist(props) {
+function Todolist({ deleteIcon, ...props }) {
   const { item, index, completed, toggleCompleted, deleteItem } = props;
 
   return (

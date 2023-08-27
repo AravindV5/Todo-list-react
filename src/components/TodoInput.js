@@ -24,7 +24,6 @@ function TodoInput(props) {
         onChange={(e) => {
           setInputText(e.target.value);
         }}
-        //onKeyDown={handleEnterPress}
       />
     </div>
   );
