@@ -11,9 +11,8 @@ body {
   align-items: center;
   height: 100vh;
 }
-.add-new-task{
-
-padding-bottom: 20px;
+.add-new-task {
+  padding-bottom: 20px;
 }
 .center-container {
   height: 550px;
@@ -24,13 +23,10 @@ padding-bottom: 20px;
 }
 
 .app-heading {
-
   color: rgb(0, 0, 0);
-font-size: x-large;
- font-family: sans-serif;
- font-weight:bold;
- 
-
+  font-size: x-large;
+  font-family: sans-serif;
+  font-weight: bold;
 }
 
 /* Add these styles for the heading and button alignment */
@@ -47,8 +43,6 @@ font-size: x-large;
   flex-direction: column;
   margin-left: 15px;
   width: 520px;
-  
-  
 }
 .input-box-todo {
   margin-left: 10px;
@@ -77,9 +71,6 @@ font-size: x-large;
   transition: 0.3s;
   background-image: url(./images/Group\ 1.png);
   background-size: 120px 30px;
- 
-    
-
 }
 .add-btn:active {
   box-shadow: none;
@@ -91,9 +82,9 @@ font-size: x-large;
 }
 .list-item {
   list-style-type: none;
-  color: rgba(90, 90 , 90, 1);
+  color: rgba(90, 90, 90, 1);
   padding-left: 30px;
-padding-right: 20px;
+  padding-right: 20px;
   padding: 3px;
   border-radius: 5px;
   width: 100%;
@@ -102,27 +93,23 @@ padding-right: 20px;
   align-items: center;
   position: relative;
   margin-top: 10px;
-  font-family: sans-serif; 
+  font-family: sans-serif;
 }
-  
+
 .list-item span {
   font-size: 13px; /* Smaller size */
 }
 
-
 .icons {
   position: absolute;
   right: 50px;
- 
-  
 }
 .icons i {
   margin: 4px;
   font-size: small;
   cursor: pointer;
   transition: 0.1s;
-  color: rgba(234, 89, 89, 1)
- 
+  color: rgba(234, 89, 89, 1);
 }
 .icons i:hover {
   transform: scale(1.2);
@@ -131,26 +118,21 @@ padding-right: 20px;
   color: rgb(98, 0, 255);
 }
 
-
 .completed {
-    color: rgb(107, 66, 66);
-    padding-left: 15px;
-  }
-  
-  .completed span {
-    text-decoration: line-through;
-  }
-  
+  color: rgb(107, 66, 66);
+  padding-left: 15px;
+}
 
-
-
+.completed span {
+  text-decoration: line-through;
+}
 
 .header-add-button {
   display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 50px;
-    margin-left: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  margin-left: 20px;
 }
 
 /* Style the checkbox */
@@ -170,7 +152,7 @@ padding-right: 20px;
   content: "\2713"; /* Unicode checkmark character */
   display: block;
   text-align: center;
-  line-height: 18px; 
+  line-height: 18px;
   font-size: 16px;
   color: rgba(234, 89, 89, 1);
   text-decoration: none;
@@ -178,8 +160,7 @@ padding-right: 20px;
 
 .input-box-todo::placeholder {
   font-size: 13px;
-  color: #aaa;   
- 
+  color: #aaa;
 }
 
 /* Add styles for the profile buttons */
@@ -210,4 +191,39 @@ padding-right: 20px;
 .profile-button:hover {
   transform: scale(1.05);
   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.header {
+  position: absolute;
+  top: 35px; /* Adjust the top position as needed */
+  right: 400px; /* Adjust the right position as needed */
+}
+
+.custom-profile-select {
+  .active-profile {
+    display: flex;
+    width: 200px;
+    align-items: center;
+    justify-content: flex-start;
+    color: white;
+    font-family: sans-serif;
+    cursor: pointer;
+  }
+  .profile-picture {
+    width: 40px;
+    border-radius: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+  .profile-picture:hover {
+    transform: scale(1.1); /* Scale up the profile picture on hover */
+  }
+  .profile-selction-div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+  }
 }
