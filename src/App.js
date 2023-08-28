@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import TodoInput from "./components/TodoInput";
-import TodoList from "./components/TodoList";
+import Todolist from "./components/TodoList";
 import ProfileDropdown from "./components/ProfileDropdown";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
     {
       name: "Chandler",
       profilePic:
-        "https://abuwjaawap.cloudimg.io/v7/_lgbtqnation-assets_/assets/2019/10/matthew-perry-chandler-bing-gay.jpg?auto=format&auto=compress&crop=faces&fit=crop&gravity=face&w=1200&h=805",
+        "https://preview.redd.it/what-are-your-overall-thoughts-on-chandler-bing-v0-p4ausbx0jypa1.png?auto=webp&s=222b758f8da8c68ee1c9e18b03eb056652cc9e9a",
       tasks: [],
     },
     {
@@ -31,32 +31,26 @@ function App() {
 
   const addTask = (inputText) => {
     if (inputText.trim() !== "") {
-      setProfiles((prevProfiles) => {
-        const updatedProfiles = [...prevProfiles];
-        updatedProfiles[activeProfile].tasks.push({
-          text: inputText,
-          completed: false,
-        });
-        return updatedProfiles;
+      const updatedProfiles = [...profiles];
+      updatedProfiles[activeProfile].tasks.push({
+        text: inputText,
+        completed: false,
       });
+      setProfiles(updatedProfiles);
     }
   };
 
   const deleteTask = (index) => {
-    setProfiles((prevProfiles) => {
-      const updatedProfiles = [...prevProfiles];
-      updatedProfiles[activeProfile].tasks.splice(index, 1);
-      return updatedProfiles;
-    });
+    const updatedProfiles = [...profiles];
+    updatedProfiles[activeProfile].tasks.splice(index, 1);
+    setProfiles(updatedProfiles);
   };
 
   const toggleTaskCompleted = (index) => {
-    setProfiles((prevProfiles) => {
-      const updatedProfiles = [...prevProfiles];
-      updatedProfiles[activeProfile].tasks[index].completed =
-        !updatedProfiles[activeProfile].tasks[index].completed;
-      return updatedProfiles;
-    });
+    const updatedProfiles = [...profiles];
+    updatedProfiles[activeProfile].tasks[index].completed =
+      !updatedProfiles[activeProfile].tasks[index].completed;
+    setProfiles(updatedProfiles);
   };
 
   const onChangeProfile = (index) => {
@@ -78,7 +72,7 @@ function App() {
 
         <div className="tasks">
           {profiles[activeProfile].tasks.map((task, index) => (
-            <TodoList
+            <Todolist
               key={index}
               item={task.text}
               completed={task.completed}
@@ -91,5 +85,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

@@ -179,6 +179,8 @@ body {
   font-size: 16px;
   background-color: #f0f0f0;
   color: #333;
+  gap: 10px;
+  margin: 10px;
 }
 
 /* Highlight the active profile button */
@@ -189,14 +191,15 @@ body {
 
 /* Style for hover effect */
 .profile-button:hover {
-  transform: scale(1.05);
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transform: scale(1.05); /* Increase size on hover */
+  background-color: #d0d0d0; /* Change background color on hover */
+  color: #444; /* Change text color on hover */
 }
 
 .header {
   position: absolute;
-  top: 35px; /* Adjust the top position as needed */
-  right: 400px; /* Adjust the right position as needed */
+  top: 20px; /* Adjust the top position as needed */
+  right: 20px; /* Adjust the right position as needed */
 }
 
 .custom-profile-select {
@@ -210,20 +213,20 @@ body {
     cursor: pointer;
   }
   .profile-picture {
-    width: 40px;
+    width: 55px;
     border-radius: 30px;
     margin-right: 10px;
-    margin-left: 10px;
     margin-bottom: 15px;
+    margin-left: 10px;
     cursor: pointer;
-  }
-  .profile-picture:hover {
-    transform: scale(1.1); /* Scale up the profile picture on hover */
   }
   .profile-selction-div {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    cursor: pointer;
+  }
+  /* Hover effect on profile picture */
+  .profile-picture:hover {
+    transform: scale(1.1); /* Increase size on hover */
   }
 }
