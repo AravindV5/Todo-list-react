@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import TodoInput from "./components/TodoInput";
 import Todolist from "./components/TodoList";
 import ProfileDropdown from "./components/ProfileDropdown";
 
 function App() {
-  const initialProfiles = [
+  // Load profiles and activeProfile from local storage or use initial values
+  const initialProfiles = JSON.parse(localStorage.getItem("profiles")) || [
     {
       name: "Chandler",
       profilePic:
@@ -27,34 +28,52 @@ function App() {
   ];
 
   const [profiles, setProfiles] = useState(initialProfiles);
-  const [activeProfile, setActiveProfile] = useState(0);
+  const [activeProfile, setActiveProfile] = useState(
+    parseInt(localStorage.getItem("activeProfile")) || 0
+  );
 
-  const addTask = (inputText) => {
-    if (inputText.trim() !== "") {
-      const updatedProfiles = [...profiles];
-      updatedProfiles[activeProfile].tasks.push({
-        text: inputText,
-        completed: false,
-      });
-      setProfiles(updatedProfiles);
-    }
+  // Function to update local storage with profiles
+  const updateLocalStorage = (profiles) => {
+    localStorage.setItem("profiles", JSON.stringify(profiles));
   };
 
+  // Function to update local storage with activeProfile
+  const updateActiveProfile = (index) => {
+    localStorage.setItem("activeProfile", index);
+  };
+
+  // Function to add a task to the active profile
+  const addTask = (text) => {
+    const updatedProfiles = [...profiles];
+    updatedProfiles[activeProfile].tasks.push({
+      text,
+      completed: false,
+    });
+    setProfiles(updatedProfiles);
+    updateLocalStorage(updatedProfiles);
+  };
+
+  // Function to delete a task
   const deleteTask = (index) => {
     const updatedProfiles = [...profiles];
     updatedProfiles[activeProfile].tasks.splice(index, 1);
     setProfiles(updatedProfiles);
+    updateLocalStorage(updatedProfiles);
   };
 
+  // Function to toggle task completion
   const toggleTaskCompleted = (index) => {
     const updatedProfiles = [...profiles];
     updatedProfiles[activeProfile].tasks[index].completed =
       !updatedProfiles[activeProfile].tasks[index].completed;
     setProfiles(updatedProfiles);
+    updateLocalStorage(updatedProfiles);
   };
 
+  // Function to change the active profile
   const onChangeProfile = (index) => {
     setActiveProfile(index);
+    updateActiveProfile(index);
   };
 
   return (
@@ -85,4 +104,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
