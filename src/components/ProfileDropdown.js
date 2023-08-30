@@ -1,58 +1,52 @@
 import React from "react";
-import Select from "react-select";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 function ProfileDropdown({ profiles, activeProfile, onChangeProfile }) {
-  const [profile, setProfile] = React.useState(profiles[0]);
-  const [profileList, showProfileList] = React.useState(false);
-  const handleProfileSelect = (val) => {
-    console.log(val, "val");
-    setProfile(profiles[val]);
-    showProfileList(!profileList);
+  const [showDropdown, setShowDropdown] = React.useState(false);
+
+  const handleProfileSelect = (index) => {
+    onChangeProfile(index);
+    setShowDropdown(false);
   };
-  // console.log(profileList);
+
   return (
     <div className="custom-profile-select">
-      <div className="active-profile">
-        <FontAwesomeIcon
-          icon={faAngleDown}
-          onClick={() => showProfileList(!profileList)}
+      <div
+        className="active-profile"
+        onClick={() => setShowDropdown(!showDropdown)}
+      >
+        <FontAwesomeIcon icon={faAngleDown} />
+        <img
+          className="profile-picture"
+          src={profiles[activeProfile].profilePic}
+          alt={profiles[activeProfile].name}
         />
-        <img className="profile-picture" src={profile.profilePic} />
-        <p>{profile.name}</p>
+        <p>{profiles[activeProfile].name}</p>
       </div>
-      {profileList &&
-        profiles.map((val, index) => {
-          return (
-            val.name !== profile.name && (
-              <div
-                className="profile-selction-div"
-                onClick={() => handleProfileSelect(index)}
-                key={index}
-                value={index}
-              >
-                <img
-                  className="profile-picture"
-                  src={val.profilePic}
-                  // alt="image not found"
-                />
-                <p>{val.name}</p>
-              </div>
-            )
-          );
-        })}
+
+      {showDropdown && (
+        <div className="profile-dropdown">
+          {profiles.map(
+            (profile, index) =>
+              index !== activeProfile && (
+                <div
+                  className="profile-selection"
+                  key={index}
+                  onClick={() => handleProfileSelect(index)}
+                >
+                  <img
+                    className="profile-picture"
+                    src={profile.profilePic}
+                    alt={profile.name}
+                  />
+                  <p>{profile.name}</p>
+                </div>
+              )
+          )}
+        </div>
+      )}
     </div>
-    // <select
-    //   value={activeProfile}
-    //   onChange={(e) => onChangeProfile(parseInt(e.target.value))}
-    // >
-    //   {profiles.map((profile, index) => (
-    //     <option src="./joey.jpg" key={index} value={index}>
-    //       {profile.name}
-    //     </option>
-    //   ))}
-    // </select>
   );
 }
 
