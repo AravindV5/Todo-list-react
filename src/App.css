@@ -230,3 +230,6 @@ body {
     transform: scale(1.1); /* Increase size on hover */
   }
 }
+.task-date {
+  margin-left: 10px; /* Add margin to create a gap */
+}

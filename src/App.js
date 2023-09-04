@@ -3,6 +3,8 @@ import "./App.css";
 import TodoInput from "./components/TodoInput";
 import Todolist from "./components/TodoList";
 import ProfileDropdown from "./components/ProfileDropdown";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 function App() {
   // Load profiles and activeProfile from local storage or use initial values
@@ -43,11 +45,12 @@ function App() {
   };
 
   // Function to add a task to the active profile
-  const addTask = (text) => {
+  const addTask = (text, date) => {
     const updatedProfiles = [...profiles];
     updatedProfiles[activeProfile].tasks.push({
       text,
       completed: false,
+      date, // Store the date in the task object
     });
     setProfiles(updatedProfiles);
     updateLocalStorage(updatedProfiles);
@@ -97,6 +100,7 @@ function App() {
               completed={task.completed}
               toggleCompleted={() => toggleTaskCompleted(index)}
               deleteItem={() => deleteTask(index)}
+              date={task.date} // Pass the date to TodoList component
             />
           ))}
         </div>
